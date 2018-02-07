@@ -40,7 +40,7 @@ public class DbUtil {
 	}
 	
 	
-	//1.获取链接
+	//1.鑾峰彇閾炬帴
 	public static Connection getConnection(){
 		Connection conn=null;
 		if(conn==null){
@@ -54,9 +54,10 @@ public class DbUtil {
 		return conn;
 	}
 	
-	//2.关闭链接
+	//2.鍏抽棴閾炬帴
 	public static void closeAll(Connection conn,PreparedStatement pstmt,ResultSet rs){
 		try {
+		// 瀛樺湪闂
 			if(rs!=null)rs.close();;
 			if(pstmt!=null) pstmt.close();
 			if(conn!=null)conn.close();
@@ -67,6 +68,5 @@ public class DbUtil {
 		
 		
 	}	
-	//3.增删查
 	
 }
