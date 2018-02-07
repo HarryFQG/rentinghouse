@@ -4,17 +4,7 @@ import java.util.Date;
 
 /**
  * 
- * @author Administrator 2017年8月14日 下午12:20:53
- *
- *字段名称					说　　明
- *ro_id					编号	自增长  int ，主键
- *ro_user_id			用户ID	int
- *ro_user_name			用户名	varchar
- *ro_create_time		创建时间	datetime
- *ro_cost				金额	float
- *ro_status				状态	int    -1:取消订单 0：已下单未受理  1：已受理    默认状态为 0
- *ro_type				付款方式	int    1 入住时现金支付 2 网上支付
- *ro_houseid			房屋Id    int
+ * @author Administrator
  */
 public class Order {
 
