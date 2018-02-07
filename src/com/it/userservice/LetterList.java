@@ -25,19 +25,18 @@ public class LetterList extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {		
 		String type=request.getParameter("type5");
-		if(type.equals("letterList")){				//查看留言列表
+		if(type.equals("letterList")){				//鏌ョ湅鐣欒█鍒楄〃
 			this.letterList(request,response);
-		}else if(type.equals("letterDetail")){		//查看留言详情
+		}else if(type.equals("letterDetail")){		//鏌ョ湅鐣欒█璇︽儏
 			this.letterDetail(request,response);
-		}else if(type.equals("addLetter")){//添加留言
+		}else if(type.equals("addLetter")){//娣诲姞鐣欒█
 			this.addLetter(request,response);
 		}
 		
 		
 	}
 
-	/**添加留言
-	 * 2017年8月18日下午6:07:22 
+	/**娣诲姞鐣欒█
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -56,8 +55,8 @@ public class LetterList extends HttpServlet {
 		
 		
 		Comment comment=new Comment();
-		comment.setCcid(userId);//发送方id
-		comment.setCrid(fangDongId);//接受方Id
+		comment.setCcid(userId);//鍙戦�佹柟id
+		comment.setCrid(fangDongId);//鎺ュ彈鏂笽d
 		comment.setCcontent(str);
 		comment.setCcreateTime(date);
 		comment.setCcname(user.getUname());
@@ -72,7 +71,7 @@ public class LetterList extends HttpServlet {
 		}List<Comment> listComments = commentDao.findById2(fangDongId,userId);
 		
 		
-		//返回JSON
+		//杩斿洖JSON
 		PrintWriter out = response.getWriter();
 		JSONArray json=JSONArray.fromObject(listComments);
 		
@@ -93,18 +92,17 @@ public class LetterList extends HttpServlet {
 	}
 
 	/**
-	 * 2017年8月18日下午5:04:53 
 	 * @param request
 	 * @param response
-	 * 留言详情
+	 * 鐣欒█璇︽儏
 	 * @throws IOException 
 	 */
 	private void letterDetail(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		
 		
-		Integer userId =Integer.parseInt(request.getParameter("userId")) ;//用戶的ID
-		Integer fangDongId=Integer.parseInt(request.getParameter("fangDongId"));//与其对话房东的Id
+		Integer userId =Integer.parseInt(request.getParameter("userId")) ;//鐢ㄦ埗鐨処D
+		Integer fangDongId=Integer.parseInt(request.getParameter("fangDongId"));//涓庡叾瀵硅瘽鎴夸笢鐨処d
 		CommentDao commentDao=new CommentDaoImpl();
 		
 		
@@ -131,10 +129,9 @@ public class LetterList extends HttpServlet {
 	}
 
 	/**
-	 * 2017年8月18日下午5:04:49 
 	 * @param request
 	 * @param response
-	 * 查看留言列表
+	 * 鏌ョ湅鐣欒█鍒楄〃
 	 * @throws IOException 
 	 */
 	private void letterList(HttpServletRequest request,
@@ -143,7 +140,7 @@ public class LetterList extends HttpServlet {
 		Integer userId=Integer.parseInt(request.getParameter("userId"));
 		CommentDao commentDao=new CommentDaoImpl();
 		
-		List<Comment> ruserlist = commentDao.findByIdList(userId);//获取联系人的Id
+		List<Comment> ruserlist = commentDao.findByIdList(userId);//鑾峰彇鑱旂郴浜虹殑Id
 		/*List<Integer> ridList=new ArrayList<>();
 		if(ruserlist!=null){
 			for(User u:ruserlist){
