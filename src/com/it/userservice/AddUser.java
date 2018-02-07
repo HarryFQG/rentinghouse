@@ -63,16 +63,16 @@ public class AddUser extends HttpServlet {
 		String type = request.getParameter("type");
 		System.out.println("---type:---:"+type);
 		if(type!=null&&type.equals("updateUser")){
-			this.updateUser(request,response);	//¸üĞÂÓÃ»§
+			this.updateUser(request,response);	//æ›´æ–°ç”¨æˆ·
 			
 		}else if(type!=null&&type.equals("updatePwd")){
-			this.updatePwd(request,response);	//¸üĞÂÓÃ»§ÃÜÂë
+			this.updatePwd(request,response);	//æ›´æ–°ç”¨æˆ·å¯†ç 
 		}else if(type!=null&&type.equals("listUser")){
-			this.listUser(request,response);	//ÓÃ»§ÁĞ±í
+			this.listUser(request,response);	//ç”¨æˆ·åˆ—è¡¨
 		}else if(type!=null&&type.equals("deleteUser")){
-			this.deleteUser(request,response);//É¾³ıÓÃ»§
+			this.deleteUser(request,response);//åˆ é™¤ç”¨æˆ·
 			
-		}else if(type!=null&&type.equals("valiName")){//ÑéÖ¤ÓÃ»§ÃûÊÇ·ñ´æÔÚ
+		}else if(type!=null&&type.equals("valiName")){//éªŒè¯ç”¨æˆ·åæ˜¯å¦å­˜åœ¨
 			this.valiName(request,response);
 			
 		}
@@ -92,10 +92,10 @@ public class AddUser extends HttpServlet {
 			int count=userDao.add(user);
 			if(count>0){
 				System.out.println("adduser---:");
-				request.setAttribute("Msg", "×¢²á³É¹¦£¡");
+				request.setAttribute("Msg", "æ³¨å†ŒæˆåŠŸï¼");
 				request.getRequestDispatcher("index.jsp").forward(request, response);;
 			}else{
-				request.setAttribute("Msg", "×¢²áÊ§°Ü£¡");
+				request.setAttribute("Msg", "æ³¨å†Œå¤±è´¥ï¼");
 				request.getRequestDispatcher("register.jsp").forward(request, response);	
 			}
 		}
@@ -104,8 +104,8 @@ public class AddUser extends HttpServlet {
 	
 
 	/**
-	 * ÑéÖ¤ÓÃ»§ÃûÊÇ·ñÒÑ¾­´æÔÚ
-	 * 2017Äê8ÔÂ22ÈÕÉÏÎç11:45:17 
+	 * éªŒè¯ç”¨æˆ·åæ˜¯å¦å·²ç»å­˜åœ¨
+	 * 
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -144,8 +144,8 @@ public class AddUser extends HttpServlet {
 	}
 
 	/**
-	 * ÉÏÎç11:02:04
-	 * ²éÑ¯ËùÓĞÓÃ»§
+	 * ä¸Šåˆ11:02:04
+	 * æŸ¥è¯¢æ‰€æœ‰ç”¨æˆ·
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -191,8 +191,8 @@ public class AddUser extends HttpServlet {
 	}
 
 	/**
-	 * ÏÂÎç6:25:57
-	 * ¸üĞÂÓÃ»§
+	 * ä¸‹åˆ6:25:57
+	 * æ›´æ–°ç”¨æˆ·
 	 * @param request
 	 * @param response
 	 * @throws IOException 
