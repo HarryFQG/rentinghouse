@@ -23,7 +23,7 @@ import com.it.entity.User;
 
 public class HouseR extends HttpServlet{
 
-	//×÷Îª·¿Îİ»º´æ£¬ÒÔhouseID×÷ÎªKey,house×÷Îª¶ÔÏó
+	//ä½œä¸ºæˆ¿å±‹ç¼“å­˜ï¼Œä»¥houseIDä½œä¸ºKey,houseä½œä¸ºå¯¹è±¡
 	static Map<Integer ,House> maps=new HashMap<>();
 	
 	@Override
@@ -38,43 +38,43 @@ public class HouseR extends HttpServlet{
 				type=str;
 			}
 		}
-		
+		// å¾…ä¼˜åŒ–ï¼Œç­–ç•¥æ¨¡å¼
 		if(type!=null&&type.equals("listHouse")){
 			
 			if(request.getSession().getAttribute("readliHouseAdmin")!=null)request.getSession().removeAttribute("readliHouseAdmin");;
 			
-			this.listHouse(request,response);//¶ÔÒ³ÃæµÄ²ÎÊı½øĞĞ²éÑ¯
-		}else if(type!=null&&type.equals("listHouseAdmin")){//¶Ô·¿ÎİµÄÉóºË
+			this.listHouse(request,response);//å¯¹é¡µé¢çš„å‚æ•°è¿›è¡ŒæŸ¥è¯¢
+		}else if(type!=null&&type.equals("listHouseAdmin")){//å¯¹æˆ¿å±‹çš„å®¡æ ¸
 			if(request.getSession().getAttribute("readliHouseAdmin")!=null)request.getSession().removeAttribute("readliHouseAdmin");;
 			
 			this.listHouseAdmin(request,response);			
-		}else if(type!=null&&type.equals("deleteHouseAdmin")){//ÉóºË²»Í¨¹ı
+		}else if(type!=null&&type.equals("deleteHouseAdmin")){//å®¡æ ¸ä¸é€šè¿‡
 			if(request.getSession().getAttribute("readliHouseAdmin")!=null)request.getSession().removeAttribute("readliHouseAdmin");;
 			
 			this.deleteHouseAdmin(request,response);
-		}else if(type!=null&&type.equals("fabuHouseAdmin")){//Í¨¹ıÉóºË·¢²¼µÄ¶©µ¥
+		}else if(type!=null&&type.equals("fabuHouseAdmin")){//é€šè¿‡å®¡æ ¸å‘å¸ƒçš„è®¢å•
 			if(request.getSession().getAttribute("readliHouseAdmin")!=null)request.getSession().removeAttribute("readliHouseAdmin");;
 			
 			this.updateHouseAdmin(request,response);
-		}else if(type!=null&&type.equals("readlyHouseAdmin")){//²é¿´¹ÜÀíÔ±ÒÑ¾­ÉóºËµÄ¶©µ¥
+		}else if(type!=null&&type.equals("readlyHouseAdmin")){//æŸ¥çœ‹ç®¡ç†å‘˜å·²ç»å®¡æ ¸çš„è®¢å•
 			
 			this.readlyHouseAdmin(request,response);
-		}else if(type!=null&&type.equals("detailHouse")){//¸ù¾İ·¿ÎİµÄidÈ¥È¡£¬·¿ÎİµÄÏêÏ¸ĞÅÏ¢
+		}else if(type!=null&&type.equals("detailHouse")){//æ ¹æ®æˆ¿å±‹çš„idå»å–ï¼Œæˆ¿å±‹çš„è¯¦ç»†ä¿¡æ¯
 			if(request.getSession().getAttribute("readliHouseAdmin")!=null)request.getSession().removeAttribute("readliHouseAdmin");;
 			
 			this.detailHouse(request,response);			
 		}else{
 			if(request.getSession().getAttribute("readliHouseAdmin")!=null)request.getSession().removeAttribute("readliHouseAdmin");;
 			
-			this.listHouse(request,response);//½øÈëÊ×Ò³½øĞĞÎŞÌõ¼ş²éÑ¯
+			this.listHouse(request,response);//è¿›å…¥é¦–é¡µè¿›è¡Œæ— æ¡ä»¶æŸ¥è¯¢
 		}
 		
 		
 		
 	}
 	/**
-	 * ÏÂÎç3:08:05
-	 * ¸ü¾İ·¿ÎİµÄIdÕÒ·¿Îİ
+	 * ä¸‹åˆ3:08:05
+	 * æ›´æ®æˆ¿å±‹çš„Idæ‰¾æˆ¿å±‹
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -95,7 +95,7 @@ public class HouseR extends HttpServlet{
 			house= houseDao.findById(hid);house.setHid(hid);
 		}
 		System.out.println("-----house:"+house);
-		//²é·¿¶«ID
+		//æŸ¥æˆ¿ä¸œID
 		Integer fangDongId=house.getHuid();
 		UserDao userDao=new UserDaoImpl();
 		User fangDong=userDao.findById(fangDongId);
@@ -108,8 +108,8 @@ public class HouseR extends HttpServlet{
 		
 	}
 	/**
-	 * ÏÂÎç1:02:24
-	 * ²é¿´¹ÜÀíÔ±ÒÑ¾­ÉóºËµÄ¶©µ¥
+	 * ä¸‹åˆ1:02:24
+	 * æŸ¥çœ‹ç®¡ç†å‘˜å·²ç»å®¡æ ¸çš„è®¢å•
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -133,7 +133,7 @@ public class HouseR extends HttpServlet{
 			}
 		}
 		ResultModel rm = houseDao.pageListHouse(null,null,null,null,null,"house_status:[2 TO 3]",pac,5);
-		//²éÑ¯·¿¶«µÄĞÕÃû
+		//æŸ¥è¯¢æˆ¿ä¸œçš„å§“å
 		List<Integer> listFangDong=new ArrayList<Integer>();
 		for(House h:rm.getHouseList()){
 			listFangDong.add(h.getHuid());
@@ -145,12 +145,12 @@ public class HouseR extends HttpServlet{
 		request.getSession().setAttribute("Msg", request.getAttribute("Msg"));		
 		request.getSession().setAttribute("houseList1", rm.getHouseList());
 		request.getSession().setAttribute("listFangDong",findUser);
-		request.getSession().setAttribute("adminReadly", "adminReadly");//¶ÔÒ³ÃæµÄĞŞ¸ÄÍ¨¹ıÓë²»Í¨¹ı½øĞĞ¿ØÖÆ
+		request.getSession().setAttribute("adminReadly", "adminReadly");//å¯¹é¡µé¢çš„ä¿®æ”¹é€šè¿‡ä¸ä¸é€šè¿‡è¿›è¡Œæ§åˆ¶
 		request.getSession().setAttribute("pageCurrent",pac);
 		request.getSession().setAttribute("totalPage",totalPage);
 		request.getSession().setAttribute("totalRow",rm.getRecordCount());
 		
-		//¿ØÖÆÒ³ÃæµÄ·ÖÒ³ÏÔÊ¾
+		//æ§åˆ¶é¡µé¢çš„åˆ†é¡µæ˜¾ç¤º
 		request.getSession().setAttribute("readliHouseAdmin", "readliHouseAdmin");
 		System.out.println("-----listHouse:"+rm.getCurPage()+","+rm.getPageCount()+","+rm.getRecordCount()+","+rm.getHouseList().size()+",");
 		request.getSession().removeAttribute("type1");
@@ -161,8 +161,8 @@ public class HouseR extends HttpServlet{
 	}
 
 	/**
-	 * ÉÏÎç10:13:27
-	 * ¹ÜÀíÔ±ÉóºËÍ¨¹ı·¢²¼
+	 * ä¸Šåˆ10:13:27
+	 * ç®¡ç†å‘˜å®¡æ ¸é€šè¿‡å‘å¸ƒ
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -205,14 +205,14 @@ public class HouseR extends HttpServlet{
 			house.setHid(hid);
 			house.setHstatus(2);			
 		}	
-		System.out.println("ÉóºË·¿×Óhouse²»Í¨¹ı:"+house);
+		System.out.println("å®¡æ ¸æˆ¿å­houseä¸é€šè¿‡:"+house);
 		
 		houseDao.updateHouse(house);
 		request.getSession().setAttribute("type1", "listHouseAdmin");
 		
 		
-		//¸üĞÂÊ×Ò³ÏÔÊ¾µÄ·¿ÎİÊıÁ¿+1
-		/*ĞŞ¸ÄÊ×Ò³ÏÔÊ¾·¿ÎİÊıÁ¿¼ÓÒ»*/
+		//æ›´æ–°é¦–é¡µæ˜¾ç¤ºçš„æˆ¿å±‹æ•°é‡+1
+		/*ä¿®æ”¹é¦–é¡µæ˜¾ç¤ºæˆ¿å±‹æ•°é‡åŠ ä¸€*/
 		HouseR houser=new HouseR();
 		houser.indexComtomer(request);
 		
@@ -221,8 +221,8 @@ public class HouseR extends HttpServlet{
 		
 	}
 	/**
-	 * ÉÏÎç10:13:43
-	 * ÓÃ»§·¢²¼¹ÜÀíÔ±²»Í¨¹ı
+	 * ä¸Šåˆ10:13:43
+	 * ç”¨æˆ·å‘å¸ƒç®¡ç†å‘˜ä¸é€šè¿‡
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -255,7 +255,7 @@ public class HouseR extends HttpServlet{
 			house.setHid(hid);
 			house.setHstatus(3);			
 		}	
-		System.out.println("ÉóºË·¿×Óhouse²»Í¨¹ı:"+house);
+		System.out.println("å®¡æ ¸æˆ¿å­houseä¸é€šè¿‡:"+house);
 		
 		int count = houseDao.updateHouse(house);		
 		request.getSession().setAttribute("type1", "listHouseAdmin");
@@ -263,8 +263,8 @@ public class HouseR extends HttpServlet{
 	}
 
 	/**
-	 * ÉÏÎç9:24:17
-	 * ¹ÜÀíÔ±¶Ô·¿Îİ½øĞĞÉóºË
+	 * ä¸Šåˆ9:24:17
+	 * ç®¡ç†å‘˜å¯¹æˆ¿å±‹è¿›è¡Œå®¡æ ¸
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -288,7 +288,7 @@ public class HouseR extends HttpServlet{
 			}
 		}
 		ResultModel rm = houseDao.pageListHouse(null,null,null,null,null,"1",pac,5);
-		//²éÑ¯·¿¶«µÄĞÕÃû
+		//æŸ¥è¯¢æˆ¿ä¸œçš„å§“å
 		List<Integer> listFangDong=new ArrayList<Integer>();
 		for(House h:rm.getHouseList()){
 			listFangDong.add(h.getHuid());
@@ -315,8 +315,8 @@ public class HouseR extends HttpServlet{
 	}
 
 	/**
-	 * ÉÏÎç9:24:03
-	 * ÓÎ¿ÍÔ¤ÀÀ
+	 * ä¸Šåˆ9:24:03
+	 * æ¸¸å®¢é¢„è§ˆ
 	 * @param request
 	 * @param response
 	 * @throws IOException
@@ -334,29 +334,29 @@ public class HouseR extends HttpServlet{
 		
 		String strPage = request.getParameter("pageCurrent");
 		
-		//ÓÎ¿Í¶Ô·¿ÎİÄÚÈİ½øĞĞÁËÉ¸Ñ¡
+		//æ¸¸å®¢å¯¹æˆ¿å±‹å†…å®¹è¿›è¡Œäº†ç­›é€‰
 		String  houseName=request.getParameter("houseName");
 		if(houseName!=null&&houseName.equals("")){
 			houseName=null;
 		}
-		String price=request.getParameter("price");//·¿Îİ¼Û¸ñ		
-		String street=request.getParameter("street");//·¿ÎİÎ»ÖÃ
+		String price=request.getParameter("price");//æˆ¿å±‹ä»·æ ¼		
+		String street=request.getParameter("street");//æˆ¿å±‹ä½ç½®
 		if(street!=null&&street.equals("")){
 			street=null;
 		}
-		String type_id=request.getParameter("type_id");//·¿ÎİÀàĞÍ:0ÊÇ²»ÏŞ£¬¾Æµê£¬±ğÊû
+		String type_id=request.getParameter("type_id");//æˆ¿å±‹ç±»å‹:0æ˜¯ä¸é™ï¼Œé…’åº—ï¼Œåˆ«å¢…
 				
 		
 		
-		String area=request.getParameter("area");//ÓÃ»§Ãæ»ı
-		//ÓÃÓÚÒ³Ãæ»ØÏÔ
+		String area=request.getParameter("area");//ç”¨æˆ·é¢ç§¯
+		//ç”¨äºé¡µé¢å›æ˜¾
 		ResultModel backLook=new ResultModel();
 		backLook.setQueryStr(houseName);
 		backLook.setPrice(price);
 		backLook.setHouseType(type_id);
 		backLook.setStreet(street);
 		backLook.setArea(area);
-		System.out.println("Ò³Ãæ»ØÏÔ£º----"+backLook);
+		System.out.println("é¡µé¢å›æ˜¾ï¼š----"+backLook);
 		
 		
 		
@@ -377,7 +377,7 @@ public class HouseR extends HttpServlet{
 		System.out.println(houseName+"---"+price+"---"+area+"---"+"----"+type_id+"---"+area+"---"+"---"+"2"+"--"+pac+"--"+5);
 		ResultModel rm = houseDao.pageListHouse(houseName,price,area,type_id,area,"2",pac,5);		
 		System.err.println("-----rm:--->"+rm.getHouseList());
-		//²éÑ¯·¿¶«µÄĞÕÃû
+		//æŸ¥è¯¢æˆ¿ä¸œçš„å§“å
 		List<Integer> listFangDong=new ArrayList<Integer>();
 		for(House h:rm.getHouseList()){
 			listFangDong.add(h.getHuid());
@@ -386,7 +386,7 @@ public class HouseR extends HttpServlet{
 		List<User> findUser = userDao.findUser(listFangDong);
 		System.out.println("0----fangDong"+findUser);
 		
-		/*ÓÅ»¯»º´æ*/
+		/*ä¼˜åŒ–ç¼“å­˜*/
 		for(House h:rm.getHouseList()){
 			maps.put(h.getHid(),h);
 		}
@@ -400,21 +400,21 @@ public class HouseR extends HttpServlet{
 		request.getSession().setAttribute("totalPage",totalPage);
 		request.getSession().setAttribute("totalRow",rm.getRecordCount());
 	/*	
-		if(rm.getHouseList()==null||rm.getHouseList().size()==0){//Èç¹û²éÑ¯µÄ¼ÇÂ¼Îª¿Õ£¬ÔòÏÈ°ÑÌõ¼şÖÂÎª¿Õ£¬ÔÙ´Î²éÑ¯¡£
+		if(rm.getHouseList()==null||rm.getHouseList().size()==0){//å¦‚æœæŸ¥è¯¢çš„è®°å½•ä¸ºç©ºï¼Œåˆ™å…ˆæŠŠæ¡ä»¶è‡´ä¸ºç©ºï¼Œå†æ¬¡æŸ¥è¯¢ã€‚
 			backLook.setArea(null);backLook.setQueryStr(null);backLook.setPrice(null);backLook.setStreet(null);backLook.setHouseType(null);
-			//Ò³Ãæ»ØÏÔ
+			//é¡µé¢å›æ˜¾
 			request.getSession().setAttribute("lookRm",backLook );	
 			response.sendRedirect("houseR");
 			return;
 		}*/
-		//Ò³Ãæ»ØÏÔ
+		//é¡µé¢å›æ˜¾
 		request.getSession().setAttribute("lookRm",backLook );
 		return rm;
 	}
 
 	/**
-	 * ÉÏÎç9:23:50
-	 * ÓÎ¿Í¶Ô·¿ÎİµÄ²éÑ¯
+	 * ä¸Šåˆ9:23:50
+	 * æ¸¸å®¢å¯¹æˆ¿å±‹çš„æŸ¥è¯¢
 	 * @param request
 	 * @param response
 	 *
