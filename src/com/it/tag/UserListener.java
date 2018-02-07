@@ -9,7 +9,7 @@ import com.it.entity.User;
 
 /**
  * 
- * @author Administrator 2017年8月15日 下午1:20:37
+ * @author Administrator 
  *
  */
 public class UserListener implements HttpSessionListener{
