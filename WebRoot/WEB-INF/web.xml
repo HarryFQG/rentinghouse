@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>duanzuwang</display-name>
+  <context-param>
+  	<param-name>encoding</param-name>
+  	<param-value>UTF-8</param-value>
+  </context-param>
+  <context-param>
+    <param-name>contentType</param-name>
+    <param-value>text/html;charset=UTF-8</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>AddUser</servlet-name>    
+    <servlet-class>com.it.userservice.AddUser</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/addUser</url-pattern>
+  </servlet-mapping>
+  
+  <!--验证码  -->
+  <servlet>
+  	<servlet-name>valicode</servlet-name>
+  	<servlet-class>com.it.serviceSundry.ValiCode</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>valicode</servlet-name>
+  	<url-pattern>/valiCode</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LoginUser</servlet-name>    
+    <servlet-class>com.it.userservice.LoginUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginUser</servlet-name>
+    <url-pattern>/loginUser</url-pattern>
+  </servlet-mapping>
+  
+  <!-- <servlet>
+    <servlet-name>HouseService</servlet-name>    
+    <servlet-class>com.it.userservice.HouseService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HouseService</servlet-name>
+    <url-pattern>/houseService</url-pattern>
+  </servlet-mapping>
+   -->
+  <servlet>
+  	<servlet-name>houseCUD</servlet-name>
+  	<servlet-class>com.it.adminservice.HouseCUD</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>houseCUD</servlet-name>
+  	<url-pattern>/houseCUD</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>houseR</servlet-name>
+  	<servlet-class>com.it.adminservice.HouseR</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>houseR</servlet-name>
+  	<url-pattern>/houseR</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>userHouse</servlet-name>
+  	<servlet-class>com.it.userservice.UserHouse</servlet-class>
+  </servlet>
+  
+
+  <servlet-mapping>
+  	<servlet-name>userHouse</servlet-name>
+  	<url-pattern>/manage/userHouse</url-pattern>
+  </servlet-mapping>
+  
+  <!--订单的受理  -->
+  <servlet>
+    <servlet-name>OrderUser</servlet-name>    
+    <servlet-class>com.it.userservice.OrderUser</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LetterList</servlet-name>    
+    <servlet-class>com.it.userservice.LetterList</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Index</servlet-name>
+    <servlet-class>com.it.userservice.Index</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>OrderUser</servlet-name>
+    <url-pattern>/orderUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LetterList</servlet-name>
+    <url-pattern>/letterList</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  <servlet-mapping>
+    <servlet-name>Index</servlet-name>
+    <url-pattern>/Index</url-pattern>
+  </servlet-mapping>
+ <!--  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.jsp</location>
+  </error-page> -->
+  
+  
+  
+  
+  
+  <!--过滤器  -->
+  <filter>
+  	<filter-name>encodinFilter</filter-name>
+  	<filter-class>com.it.filter.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encodinFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+  	<filter-name>loginFilter</filter-name>  	
+  	<filter-class>com.it.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>loginFilter</filter-name>  	
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!--监听器  -->
+  <listener>
+  	<listener-class>com.it.tag.UserListener</listener-class>
+  </listener>
+  <welcome-file-list>
+    <welcome-file>Index</welcome-file>   
+  </welcome-file-list>
+</web-app>
