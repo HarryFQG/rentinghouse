@@ -12,8 +12,7 @@ import com.it.dao.HouseDaoImpl;
 import com.it.entity.House;
 import com.it.util.UtilUpLoad;
 /**
- * ÔöÉ¾¸Ä
- * @author Administrator 2017Äê8ÔÂ15ÈÕ ÏÂÎç1:32:12
+ * å¢åˆ æ”¹
  *
  */
 public class HouseCUD extends HttpServlet{
@@ -26,7 +25,7 @@ public class HouseCUD extends HttpServlet{
 			this.deleteHouse(request, response);
 		}else if(type!=null&&type.equals("updateHouse")){
 			this.updateHouse(request, response);		
-		}else{//Ìí¼Ó·¿Îİ
+		}else{//æ·»åŠ æˆ¿å±‹
 			this.addHouse(request, response);
 		}
 	}
@@ -53,24 +52,4 @@ public class HouseCUD extends HttpServlet{
 		
 	}
 
-	/*Integer  huid=((User)request.getSession().getAttribute("user")).getUid();
-	String huname=request.getParameter("houseName");
-	int hinvoice=Integer.parseInt(request.getParameter("receipt"));
-	int hleaseTpe=Integer.parseInt(request.getParameter("rentType"));
-	int htype=Integer.parseInt(request.getParameter("houseType"));
-	double area=Double.parseDouble(request.getParameter("area"));
-	int hlive=Integer.parseInt(request.getParameter("capacity"));
-	int hbed=Integer.parseInt(request.getParameter("bedNumber"));
-	int hbedRoom=Integer.parseInt(request.getParameter("roomNumber"));
-	int hbedForm=Integer.parseInt(request.getParameter("bedType"));
-	int htoilet=Integer.parseInt(request.getParameter("toiletNumber"));
-	SimpleDateFormat format=new SimpleDateFormat("HH:mm:ss");
-	Date hcheckIn=null,hcheckOut=null;
-	try {
-		hcheckIn=format.parse(request.getParameter("checkInTime"));
-		hcheckOut=format.parse(request.getParameter("checkOutTime"));
-	} catch (ParseException e) {			
-		e.printStackTrace();
-		throw new RuntimeException("addHouseµÄÊ±¼äÀàĞÍ×ª»¯´íÎó");
-	}*/
 }
