@@ -3,15 +3,7 @@ package com.it.entity;
 import java.io.Serializable;
 /**
  * 
- * @author Administrator 2017年8月14日 上午11:52:37
- *
- *ru_user_id		int 	
- *ru_user_name		varchar	用户登录名  varchar    4-12个字符（汉字，字母，数字，下划线）
- *ru_password		varchar
- *ru_email			varchar
- *ru_mobile  		varchar
- *ru_status			int		1 普通用户 2 管理员   int
- *ru_login			int		0 未登录 1 已登录  int
+ * @author Administrator 
  */
 public class User implements Serializable{
 	
