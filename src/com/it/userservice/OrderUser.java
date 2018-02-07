@@ -28,8 +28,8 @@ import com.it.entity.OrderDetail;
 import com.it.entity.User;
 /**
  * 
- * @author Administrator 2017Äê8ÔÂ17ÈÕ ÏÂÎç1:57:26
- *	·ÖÒ³°´Å¥µÄ´¦Àí
+ * @author Administrator
+ *	åˆ†é¡µæŒ‰é’®çš„å¤„ç†
  */
 public class OrderUser extends HttpServlet {
 
@@ -53,21 +53,21 @@ public class OrderUser extends HttpServlet {
 		
 		
 		
-		if(type!=null&&type.equals("creatingOrder")){//´´½¨¶©µ¥
+		if(type!=null&&type.equals("creatingOrder")){//åˆ›å»ºè®¢å•
 			this.createOrder(request,response);
-		}else if(type!=null&&type.equals("quxiao")){//·¿¿Íµã»÷ÁËÈ¡Ïû¸Ã¶©µ¥£¬×´Ì¬ÖµÎª-1
+		}else if(type!=null&&type.equals("quxiao")){//æˆ¿å®¢ç‚¹å‡»äº†å–æ¶ˆè¯¥è®¢å•ï¼ŒçŠ¶æ€å€¼ä¸º-1
 			this.back(request,response);
 			
-		}else if(type!=null&&type.equals("waitOrder")){//·¿¿Í²é¿´´ı´¦ÀíµÄ¶©µ¥
+		}else if(type!=null&&type.equals("waitOrder")){//æˆ¿å®¢æŸ¥çœ‹å¾…å¤„ç†çš„è®¢å•
 			
 			this.waitOrder(request,response);			
-		}else if(type!=null&&type.equals("chuli")){//·¿¶«ÊÜÀí¶©µ¥
+		}else if(type!=null&&type.equals("chuli")){//æˆ¿ä¸œå—ç†è®¢å•
 			
 			this.dealOrder(request,response);
-		}else if(type!=null&&type.equals("alreadyDeal")){//·¿¿Í²é¿´ÒÑ¾­·¿¶«ÒÑ¾­´¦ÀíÁËµÄ¶©µ¥,Ò²¾ÍÊÇ¶©µ¥×´Ì¬(order_type)Îª1µÄ¶©µ¥
+		}else if(type!=null&&type.equals("alreadyDeal")){//æˆ¿å®¢æŸ¥çœ‹å·²ç»æˆ¿ä¸œå·²ç»å¤„ç†äº†çš„è®¢å•,ä¹Ÿå°±æ˜¯è®¢å•çŠ¶æ€(order_type)ä¸º1çš„è®¢å•
 			
 			this.alreadyDeal(request,response);
-		}else if(type!=null&&type.equals("alreadyBack")){//·¿¿Í²é¿´ÒÑ¾­×Ô¼ºÈ¡ÏûÁËµÄ¶©µ¥,Ò²¾ÍÊÇ¶©µ¥×´Ì¬(order_type)Îª-1µÄ¶©µ¥
+		}else if(type!=null&&type.equals("alreadyBack")){//æˆ¿å®¢æŸ¥çœ‹å·²ç»è‡ªå·±å–æ¶ˆäº†çš„è®¢å•,ä¹Ÿå°±æ˜¯è®¢å•çŠ¶æ€(order_type)ä¸º-1çš„è®¢å•
 			
 			this.alreadyBack(request,response);
 		}
@@ -75,8 +75,8 @@ public class OrderUser extends HttpServlet {
 	}
 	
 	
-	/**·¿¿Í²é¿´ÒÑ¾­×Ô¼ºÈ¡ÏûÁËµÄ¶©µ¥,Ò²¾ÍÊÇ¶©µ¥×´Ì¬(order_type)Îª-1µÄ¶©µ¥			
-	 * 2017Äê8ÔÂ18ÈÕÏÂÎç4:06:45 
+	/**æˆ¿å®¢æŸ¥çœ‹å·²ç»è‡ªå·±å–æ¶ˆäº†çš„è®¢å•,ä¹Ÿå°±æ˜¯è®¢å•çŠ¶æ€(order_type)ä¸º-1çš„è®¢å•			
+	 * 2017å¹´8æœˆ18æ—¥ä¸‹åˆ4:06:45 
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -99,8 +99,8 @@ public class OrderUser extends HttpServlet {
 		
 		String strPage =request.getParameter("pageCurrent");
 		OrderDao orderDao=new OrderDaoImpl();
-		int totalRow=orderDao.totalCount(uid, 0);//»ñÈ¡¼ÇÂ¼Êı
-		int totalPage=orderDao.totalPage(uid,0,5);//ÓÃ»§Id,×´Ì¬£¬·ÖÒ³ÊıÁ¿
+		int totalRow=orderDao.totalCount(uid, 0);//è·å–è®°å½•æ•°
+		int totalPage=orderDao.totalPage(uid,0,5);//ç”¨æˆ·Id,çŠ¶æ€ï¼Œåˆ†é¡µæ•°é‡
 		int pac=0;
 		if(strPage==null){
 			pac=1;
@@ -116,19 +116,19 @@ public class OrderUser extends HttpServlet {
 		
 		
 		System.out.println("-------uid:"+uid);
-		//ÏÈ²éTb_order±í,ÏÔÊ¾³ö×Ô¼ºËùÓĞµÄ´ú¶©µÄ¶©µ¥
+		//å…ˆæŸ¥Tb_orderè¡¨,æ˜¾ç¤ºå‡ºè‡ªå·±æ‰€æœ‰çš„ä»£è®¢çš„è®¢å•
 				
-		List<Order> listOrder = orderDao.findByUid(uid,-1);//È¡Ïû¶©µ¥µÄ×´Ì¬Îª-1
-		List<Integer> listoid=new ArrayList<>();//ÅúÁ¿²éÑ¯µ±Ç°ÓÃ»§µÄËùÓĞ´ı´¦Àí¶©µ¥µÄoid
+		List<Order> listOrder = orderDao.findByUid(uid,-1);//å–æ¶ˆè®¢å•çš„çŠ¶æ€ä¸º-1
+		List<Integer> listoid=new ArrayList<>();//æ‰¹é‡æŸ¥è¯¢å½“å‰ç”¨æˆ·çš„æ‰€æœ‰å¾…å¤„ç†è®¢å•çš„oid
 		for(Order o:listOrder){
 			maps1.put(o.getOid(), o);
 			listoid.add(o.getOid());
 		}
 		
-		//ÅúÁ¿²éÑ¯OrderDetail
+		//æ‰¹é‡æŸ¥è¯¢OrderDetail
 		OrderDetailDao orderDetailDao=new OrderDetailImpl();
-		List<OrderDetail> litsDetail = orderDetailDao.litsDetail(listoid);//²éÑ¯ËùÓĞµÄOrderDetail½á¹û
-		//È¡·¿¶«µÄ·¿×ÓId
+		List<OrderDetail> litsDetail = orderDetailDao.litsDetail(listoid);//æŸ¥è¯¢æ‰€æœ‰çš„OrderDetailç»“æœ
+		//å–æˆ¿ä¸œçš„æˆ¿å­Id
 		List<Integer> listhid=new ArrayList<>();
 		for(OrderDetail o:litsDetail){
 			if(o!=null){
@@ -137,10 +137,10 @@ public class OrderUser extends HttpServlet {
 			}
 		}
 		
-		/*¸ü¾İIdÅúÁ¿²éÑ¯·¿×Ó*/
+		/*æ›´æ®Idæ‰¹é‡æŸ¥è¯¢æˆ¿å­*/
 		HouseDao houseDao=new HouseDaoImpl();
-		List<House> findByListHouse = houseDao.findByListHouse(listhid);//²éÑ¯ËùÓĞµÄ·¿×Ó
-		//²éÑ¯ËùÓĞµÄUid
+		List<House> findByListHouse = houseDao.findByListHouse(listhid);//æŸ¥è¯¢æ‰€æœ‰çš„æˆ¿å­
+		//æŸ¥è¯¢æ‰€æœ‰çš„Uid
 		List<Integer> listuid=new ArrayList<>();
 		for(House h:findByListHouse){
 			if(h!=null){
@@ -149,7 +149,7 @@ public class OrderUser extends HttpServlet {
 			}
 		}		
 		
-		/*¸ü¾İidÅúÁ¿²éÑ¯ÓÃ»§*/
+		/*æ›´æ®idæ‰¹é‡æŸ¥è¯¢ç”¨æˆ·*/
 		UserDao userDao=new UserDaoImpl();
 		List<User> findUser = userDao.findUser(listuid);
 		for(User u:findUser){
@@ -157,7 +157,7 @@ public class OrderUser extends HttpServlet {
 		}
 		
 		
-		//Êä³öËÄÕÅ±í
+		//è¾“å‡ºå››å¼ è¡¨
 		System.out.println("----------listOrder----:"+listOrder);
 		System.out.println("----------litsDetail----:"+litsDetail);
 		System.out.println("----------findByListHouse----:"+findByListHouse);
@@ -167,16 +167,16 @@ public class OrderUser extends HttpServlet {
 		request.getSession().setAttribute("findByListHouse", findByListHouse);
 		request.getSession().setAttribute("findUser", findUser);
 		
-		//·ÀÖ¹·ÖÒ³ĞÅÏ¢
+		//é˜²æ­¢åˆ†é¡µä¿¡æ¯
 		request.getSession().setAttribute("pageCurrent",pac);
 		request.getSession().setAttribute("totalPage",totalPage);
 		request.getSession().setAttribute("totalRow",totalRow);
 		
-		//ÓÃÓÚÒ³Ãæ¿ØÖÆÊÇÓÃ»§´ı´¦Àí¶©µ¥£¬»¹ÊÇ£¬·¿¶«Òª´¦ÀíµÄ¶©µ¥¡£
-		request.getSession().setAttribute("orderStatus", 3);//ÕâÖÖ×´Ì¬·¿¿Í¿ÉÒÔÈ¡Ïû°´Å¥£¬µ±Îª1ÊÇ£¬ËµÃ÷ÓÃ»§½øµÄÊÇ·¿¶«½çÃæ£¬ÏÔÊ¾ÊÜÀí°´Å¥
+		//ç”¨äºé¡µé¢æ§åˆ¶æ˜¯ç”¨æˆ·å¾…å¤„ç†è®¢å•ï¼Œè¿˜æ˜¯ï¼Œæˆ¿ä¸œè¦å¤„ç†çš„è®¢å•ã€‚
+		request.getSession().setAttribute("orderStatus", 3);//è¿™ç§çŠ¶æ€æˆ¿å®¢å¯ä»¥å–æ¶ˆæŒ‰é’®ï¼Œå½“ä¸º1æ˜¯ï¼Œè¯´æ˜ç”¨æˆ·è¿›çš„æ˜¯æˆ¿ä¸œç•Œé¢ï¼Œæ˜¾ç¤ºå—ç†æŒ‰é’®
 		
 		
-		//·ÖÒ³°´Å¥µÄ´¦Àí
+		//åˆ†é¡µæŒ‰é’®çš„å¤„ç†
 		
 		
 		response.sendRedirect("manage/order.jsp");
@@ -194,8 +194,8 @@ public class OrderUser extends HttpServlet {
 	
 	
 	
-	/**·¿¿Í²é¿´ÒÑ¾­·¿¶«ÒÑ¾­´¦ÀíÁËµÄ¶©µ¥,Ò²¾ÍÊÇ¶©µ¥×´Ì¬(order_type)Îª1µÄ¶©µ¥			
-	 * 2017Äê8ÔÂ18ÈÕÏÂÎç4:07:16 
+	/**æˆ¿å®¢æŸ¥çœ‹å·²ç»æˆ¿ä¸œå·²ç»å¤„ç†äº†çš„è®¢å•,ä¹Ÿå°±æ˜¯è®¢å•çŠ¶æ€(order_type)ä¸º1çš„è®¢å•			
+	 * 2017å¹´8æœˆ18æ—¥ä¸‹åˆ4:07:16 
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -219,8 +219,8 @@ public class OrderUser extends HttpServlet {
 		
 		String strPage =request.getParameter("pageCurrent");
 		OrderDao orderDao=new OrderDaoImpl();
-		int totalRow=orderDao.totalCount(uid, 0);//»ñÈ¡¼ÇÂ¼Êı
-		int totalPage=orderDao.totalPage(uid,0,5);//ÓÃ»§Id,×´Ì¬£¬·ÖÒ³ÊıÁ¿
+		int totalRow=orderDao.totalCount(uid, 0);//è·å–è®°å½•æ•°
+		int totalPage=orderDao.totalPage(uid,0,5);//ç”¨æˆ·Id,çŠ¶æ€ï¼Œåˆ†é¡µæ•°é‡
 		int pac=0;
 		if(strPage==null){
 			pac=1;
@@ -236,19 +236,19 @@ public class OrderUser extends HttpServlet {
 		
 		
 		System.out.println("-------uid"+uid);
-		//ÏÈ²éTb_order±í,ÏÔÊ¾³ö×Ô¼ºËùÓĞµÄ´ú¶©µÄ¶©µ¥
+		//å…ˆæŸ¥Tb_orderè¡¨,æ˜¾ç¤ºå‡ºè‡ªå·±æ‰€æœ‰çš„ä»£è®¢çš„è®¢å•
 				
-		List<Order> listOrder = orderDao.findByUid(uid,1);//ÒÑ´¦Àí¶©µ¥µÄ×´Ì¬Îª1
-		List<Integer> listoid=new ArrayList<>();//ÅúÁ¿²éÑ¯µ±Ç°ÓÃ»§µÄËùÓĞ´ı´¦Àí¶©µ¥µÄoid
+		List<Order> listOrder = orderDao.findByUid(uid,1);//å·²å¤„ç†è®¢å•çš„çŠ¶æ€ä¸º1
+		List<Integer> listoid=new ArrayList<>();//æ‰¹é‡æŸ¥è¯¢å½“å‰ç”¨æˆ·çš„æ‰€æœ‰å¾…å¤„ç†è®¢å•çš„oid
 		for(Order o:listOrder){
 			maps1.put(o.getOid(), o);
 			listoid.add(o.getOid());
 		}
 		
-		//ÅúÁ¿²éÑ¯OrderDetail
+		//æ‰¹é‡æŸ¥è¯¢OrderDetail
 		OrderDetailDao orderDetailDao=new OrderDetailImpl();
-		List<OrderDetail> litsDetail = orderDetailDao.litsDetail(listoid);//²éÑ¯ËùÓĞµÄOrderDetail½á¹û
-		//È¡·¿¶«µÄ·¿×ÓId
+		List<OrderDetail> litsDetail = orderDetailDao.litsDetail(listoid);//æŸ¥è¯¢æ‰€æœ‰çš„OrderDetailç»“æœ
+		//å–æˆ¿ä¸œçš„æˆ¿å­Id
 		List<Integer> listhid=new ArrayList<>();
 		for(OrderDetail o:litsDetail){
 			if(o!=null){
@@ -257,10 +257,10 @@ public class OrderUser extends HttpServlet {
 			}
 		}
 		
-		/*¸ü¾İIdÅúÁ¿²éÑ¯·¿×Ó*/
+		/*æ›´æ®Idæ‰¹é‡æŸ¥è¯¢æˆ¿å­*/
 		HouseDao houseDao=new HouseDaoImpl();
-		List<House> findByListHouse = houseDao.findByListHouse(listhid);//²éÑ¯ËùÓĞµÄ·¿×Ó
-		//²éÑ¯ËùÓĞµÄUid
+		List<House> findByListHouse = houseDao.findByListHouse(listhid);//æŸ¥è¯¢æ‰€æœ‰çš„æˆ¿å­
+		//æŸ¥è¯¢æ‰€æœ‰çš„Uid
 		List<Integer> listuid=new ArrayList<>();
 		for(House h:findByListHouse){
 			if(h!=null){
@@ -269,7 +269,7 @@ public class OrderUser extends HttpServlet {
 			}
 		}		
 		
-		/*¸ü¾İidÅúÁ¿²éÑ¯ÓÃ»§*/
+		/*æ›´æ®idæ‰¹é‡æŸ¥è¯¢ç”¨æˆ·*/
 		UserDao userDao=new UserDaoImpl();
 		List<User> findUser = userDao.findUser(listuid);
 		for(User u:findUser){
@@ -277,7 +277,7 @@ public class OrderUser extends HttpServlet {
 		}
 		
 		
-		//Êä³öËÄÕÅ±í
+		//è¾“å‡ºå››å¼ è¡¨
 		System.out.println("----------listOrder----:"+listOrder);
 		System.out.println("----------litsDetail----:"+litsDetail);
 		System.out.println("----------findByListHouse----:"+findByListHouse);
@@ -287,18 +287,15 @@ public class OrderUser extends HttpServlet {
 		request.getSession().setAttribute("findByListHouse", findByListHouse);
 		request.getSession().setAttribute("findUser", findUser);
 		
-		//·ÀÖ¹·ÖÒ³ĞÅÏ¢
+		//é˜²æ­¢åˆ†é¡µä¿¡æ¯
 		request.getSession().setAttribute("pageCurrent",pac);
 		request.getSession().setAttribute("totalPage",totalPage);
 		request.getSession().setAttribute("totalRow",totalRow);
 		
-		//ÓÃÓÚÒ³Ãæ¿ØÖÆÊÇÓÃ»§´ı´¦Àí¶©µ¥£¬»¹ÊÇ£¬·¿¶«Òª´¦ÀíµÄ¶©µ¥¡£				//Îª3¾ÍÊÇÁ½¸ö°´Å¥¶¼²»ÏÔÊ¾
-		request.getSession().setAttribute("orderStatus", 3);//ÕâÖÖ×´Ì¬·¿¿Í¿ÉÒÔÈ¡Ïû°´Å¥£¬µ±Îª1ÊÇ£¬ËµÃ÷ÓÃ»§½øµÄÊÇ·¿¶«½çÃæ£¬ÏÔÊ¾ÊÜÀí°´Å¥
-		
-		
-		
-		
-		//ÏÂÃæ·ÖÒ³°´Å¥µÄ´¦Àí
+		//ç”¨äºé¡µé¢æ§åˆ¶æ˜¯ç”¨æˆ·å¾…å¤„ç†è®¢å•ï¼Œè¿˜æ˜¯ï¼Œæˆ¿ä¸œè¦å¤„ç†çš„è®¢å•ã€‚				//ä¸º3å°±æ˜¯ä¸¤ä¸ªæŒ‰é’®éƒ½ä¸æ˜¾ç¤º
+		request.getSession().setAttribute("orderStatus", 3);//è¿™ç§çŠ¶æ€æˆ¿å®¢å¯ä»¥å–æ¶ˆæŒ‰é’®ï¼Œå½“ä¸º1æ˜¯ï¼Œè¯´æ˜ç”¨æˆ·è¿›çš„æ˜¯æˆ¿ä¸œç•Œé¢ï¼Œæ˜¾ç¤ºå—ç†æŒ‰é’®
+	
+
 		
 		
 		
@@ -315,8 +312,8 @@ public class OrderUser extends HttpServlet {
 		
 	}
 	/**
-	 * ÉÏÎç9:40:33
-	 * ·¿¶«ÊÜÀíÁË¶©µ¥¡£ÖµÎª1
+	 * ä¸Šåˆ9:40:33
+	 * æˆ¿ä¸œå—ç†äº†è®¢å•ã€‚å€¼ä¸º1
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -339,7 +336,7 @@ public class OrderUser extends HttpServlet {
 			order=orderDao.findById(orderId);
 		}
 		order.setOid(orderId);
-		order.setOstatus(1);//order_status:ĞŞ¸Ä¸ÄÎª1
+		order.setOstatus(1);//order_status:ä¿®æ”¹æ”¹ä¸º1
 		orderDao.update(order);
 		System.out.println("------------orderBack:"+order);
 		request.getSession().setAttribute("userId", userId);
@@ -348,8 +345,8 @@ public class OrderUser extends HttpServlet {
 		
 	}
 	/**
-	 * ÉÏÎç9:40:03
-	 * ·¿¿ÍÈ¡ÏûÁË¶©µ¥,×´Ì¬ÖµÎª-1
+	 * ä¸Šåˆ9:40:03
+	 * æˆ¿å®¢å–æ¶ˆäº†è®¢å•,çŠ¶æ€å€¼ä¸º-1
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -377,7 +374,7 @@ public class OrderUser extends HttpServlet {
 		
 		OrderDetailDao orderDetailDao=new OrderDetailImpl();
 		OrderDetail od = orderDetailDao.findByOid(orderId);
-		//ĞŞ¸Ä·¿Îİ×´Ì¬Îª4£¬±íÊ¾ÒÑ¶©¡£ÏÖÔÚÒª¸ÄÎª2
+		//ä¿®æ”¹æˆ¿å±‹çŠ¶æ€ä¸º4ï¼Œè¡¨ç¤ºå·²è®¢ã€‚ç°åœ¨è¦æ”¹ä¸º2
 		HouseDao houseDao=new HouseDaoImpl();
 		House house = houseDao.findById(od.getOdhid());
 		house.setHstatus(2);
@@ -391,7 +388,7 @@ public class OrderUser extends HttpServlet {
 		
 		
 		
-		/*ĞŞ¸ÄÊ×Ò³ÏÔÊ¾·¿ÎİÊıÁ¿¼ÓÒ»*/
+		/*ä¿®æ”¹é¦–é¡µæ˜¾ç¤ºæˆ¿å±‹æ•°é‡åŠ ä¸€*/
 		HouseR houser=new HouseR();
 		houser.indexComtomer(request);			
 		
@@ -404,11 +401,11 @@ public class OrderUser extends HttpServlet {
 		/*request.getRequestDispatcher("orderUser").forward(request, response);*/
 	}
 	/**
-	 * ÏÂÎç6:48:13
-	 * ·¿¿Í²é¿´×Ô¼ºµÈ´ı·¿¶«ÊÜÀíµÄ¶©µ¥
+	 * ä¸‹åˆ6:48:13
+	 * æˆ¿å®¢æŸ¥çœ‹è‡ªå·±ç­‰å¾…æˆ¿ä¸œå—ç†çš„è®¢å•
 	 * @param request
 	 * @param response
-	 *´ı·¿¶«ÊÜÀíµÄ¶©µ¥Ò³ÃæÉÏÏÔÊ¾µÄÄÚÈİ£¬ÔÚtb_houseºÍTb_userºÍtb_order,Tb_OrderDetailÉÏÃæ
+	 *å¾…æˆ¿ä¸œå—ç†çš„è®¢å•é¡µé¢ä¸Šæ˜¾ç¤ºçš„å†…å®¹ï¼Œåœ¨tb_houseå’ŒTb_userå’Œtb_order,Tb_OrderDetailä¸Šé¢
 	 * @throws IOException 
 	 */
 	private void waitOrder(HttpServletRequest request,
@@ -428,8 +425,8 @@ public class OrderUser extends HttpServlet {
 		
 		String strPage =request.getParameter("pageCurrent");
 		OrderDao orderDao=new OrderDaoImpl();
-		int totalRow=orderDao.totalCount(uid, 0);//»ñÈ¡¼ÇÂ¼Êı
-		int totalPage=orderDao.totalPage(uid,0,5);//ÓÃ»§Id,×´Ì¬£¬·ÖÒ³ÊıÁ¿
+		int totalRow=orderDao.totalCount(uid, 0);//è·å–è®°å½•æ•°
+		int totalPage=orderDao.totalPage(uid,0,5);//ç”¨æˆ·Id,çŠ¶æ€ï¼Œåˆ†é¡µæ•°é‡
 		int pac=0;
 		if(strPage==null){
 			pac=1;
@@ -445,19 +442,19 @@ public class OrderUser extends HttpServlet {
 		
 		
 		
-		//ÏÈ²éTb_order±í,ÏÔÊ¾³ö×Ô¼ºËùÓĞµÄ´ú¶©µÄ¶©µ¥
+		//å…ˆæŸ¥Tb_orderè¡¨,æ˜¾ç¤ºå‡ºè‡ªå·±æ‰€æœ‰çš„ä»£è®¢çš„è®¢å•
 				
-		List<Order> listOrder = orderDao.findByUid(uid,0);//´ı´¦Àí¶©µ¥µÄ×´Ì¬Îª0
-		List<Integer> listoid=new ArrayList<>();//ÅúÁ¿²éÑ¯µ±Ç°ÓÃ»§µÄËùÓĞ´ı´¦Àí¶©µ¥µÄoid
+		List<Order> listOrder = orderDao.findByUid(uid,0);//å¾…å¤„ç†è®¢å•çš„çŠ¶æ€ä¸º0
+		List<Integer> listoid=new ArrayList<>();//æ‰¹é‡æŸ¥è¯¢å½“å‰ç”¨æˆ·çš„æ‰€æœ‰å¾…å¤„ç†è®¢å•çš„oid
 		for(Order o:listOrder){
 			maps1.put(o.getOid(), o);
 			listoid.add(o.getOid());
 		}
 		
-		//ÅúÁ¿²éÑ¯OrderDetail
+		//æ‰¹é‡æŸ¥è¯¢OrderDetail
 		OrderDetailDao orderDetailDao=new OrderDetailImpl();
-		List<OrderDetail> litsDetail = orderDetailDao.litsDetail(listoid);//²éÑ¯ËùÓĞµÄOrderDetail½á¹û
-		//È¡·¿¶«µÄ·¿×ÓId
+		List<OrderDetail> litsDetail = orderDetailDao.litsDetail(listoid);//æŸ¥è¯¢æ‰€æœ‰çš„OrderDetailç»“æœ
+		//å–æˆ¿ä¸œçš„æˆ¿å­Id
 		List<Integer> listhid=new ArrayList<>();
 		for(OrderDetail o:litsDetail){
 			if(o!=null){
@@ -466,10 +463,10 @@ public class OrderUser extends HttpServlet {
 			}
 		}
 		
-		/*¸ü¾İIdÅúÁ¿²éÑ¯·¿×Ó*/
+		/*æ›´æ®Idæ‰¹é‡æŸ¥è¯¢æˆ¿å­*/
 		HouseDao houseDao=new HouseDaoImpl();
-		List<House> findByListHouse = houseDao.findByListHouse(listhid);//²éÑ¯ËùÓĞµÄ·¿×Ó
-		//²éÑ¯ËùÓĞµÄUid
+		List<House> findByListHouse = houseDao.findByListHouse(listhid);//æŸ¥è¯¢æ‰€æœ‰çš„æˆ¿å­
+		//æŸ¥è¯¢æ‰€æœ‰çš„Uid
 		List<Integer> listuid=new ArrayList<>();
 		for(House h:findByListHouse){
 			if(h!=null){
@@ -478,7 +475,7 @@ public class OrderUser extends HttpServlet {
 			}
 		}		
 		
-		/*¸ü¾İidÅúÁ¿²éÑ¯ÓÃ»§*/
+		/*æ›´æ®idæ‰¹é‡æŸ¥è¯¢ç”¨æˆ·*/
 		UserDao userDao=new UserDaoImpl();
 		List<User> findUser = userDao.findUser(listuid);
 		for(User u:findUser){
@@ -486,7 +483,7 @@ public class OrderUser extends HttpServlet {
 		}
 		
 		
-		//Êä³öËÄÕÅ±í
+		//è¾“å‡ºå››å¼ è¡¨
 		System.out.println("----------listOrder----:"+listOrder);
 		System.out.println("----------litsDetail----:"+litsDetail);
 		System.out.println("----------findByListHouse----:"+findByListHouse);
@@ -496,13 +493,13 @@ public class OrderUser extends HttpServlet {
 		request.getSession().setAttribute("findByListHouse", findByListHouse);
 		request.getSession().setAttribute("findUser", findUser);
 		
-		//·ÀÖ¹·ÖÒ³ĞÅÏ¢
+		//é˜²æ­¢åˆ†é¡µä¿¡æ¯
 		request.getSession().setAttribute("pageCurrent",pac);
 		request.getSession().setAttribute("totalPage",totalPage);
 		request.getSession().setAttribute("totalRow",totalRow);
 		
-		//ÓÃÓÚÒ³Ãæ¿ØÖÆÊÇÓÃ»§´ı´¦Àí¶©µ¥£¬»¹ÊÇ£¬·¿¶«Òª´¦ÀíµÄ¶©µ¥¡£
-		request.getSession().setAttribute("orderStatus", 0);//ÕâÖÖ×´Ì¬·¿¿Í¿ÉÒÔÈ¡Ïû°´Å¥£¬µ±Îª1ÊÇ£¬ËµÃ÷ÓÃ»§½øµÄÊÇ·¿¶«½çÃæ£¬ÏÔÊ¾ÊÜÀí°´Å¥
+		//ç”¨äºé¡µé¢æ§åˆ¶æ˜¯ç”¨æˆ·å¾…å¤„ç†è®¢å•ï¼Œè¿˜æ˜¯ï¼Œæˆ¿ä¸œè¦å¤„ç†çš„è®¢å•ã€‚
+		request.getSession().setAttribute("orderStatus", 0);//è¿™ç§çŠ¶æ€æˆ¿å®¢å¯ä»¥å–æ¶ˆæŒ‰é’®ï¼Œå½“ä¸º1æ˜¯ï¼Œè¯´æ˜ç”¨æˆ·è¿›çš„æ˜¯æˆ¿ä¸œç•Œé¢ï¼Œæ˜¾ç¤ºå—ç†æŒ‰é’®
 		
 		
 		response.sendRedirect("manage/order.jsp");
@@ -515,8 +512,8 @@ public class OrderUser extends HttpServlet {
 	}
 
 	/**
-	 * ÏÂÎç2:03:02
-	 * ´´½¨¶©µ¥£¬µ«Î´¸¶¿î
+	 * ä¸‹åˆ2:03:02
+	 * åˆ›å»ºè®¢å•ï¼Œä½†æœªä»˜æ¬¾
 	 * @param request
 	 * @param response
 	 * @throws IOException 
@@ -524,11 +521,11 @@ public class OrderUser extends HttpServlet {
 	 */
 	private void createOrder(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		double payCost =Double.parseDouble(request.getParameter("ocost")) ;//×Ü½ğ¶î
-		int ouid= Integer.parseInt(request.getParameter("ouid"));//¿Í»§ID
-		String ouname=request.getParameter("ouname");//¿Í»§Ãû×Ö
+		double payCost =Double.parseDouble(request.getParameter("ocost")) ;//æ€»é‡‘é¢
+		int ouid= Integer.parseInt(request.getParameter("ouid"));//å®¢æˆ·ID
+		String ouname=request.getParameter("ouname");//å®¢æˆ·åå­—
 		
-		Integer opayType=Integer.parseInt(request.getParameter("payType"));//Ö§¸¶ÀàĞÍ
+		Integer opayType=Integer.parseInt(request.getParameter("payType"));//æ”¯ä»˜ç±»å‹
 		Date date=new Date();
 		Order order=new Order();
 		order.setOpayType(opayType);
@@ -540,13 +537,13 @@ public class OrderUser extends HttpServlet {
 		
 		OrderDao orderDao=new OrderDaoImpl();
 		int count = orderDao.add(order);
-		System.out.println("----ÒÔÏÂ¶©µ¥£º"+order+",<---->,"+count);	
+		System.out.println("----ä»¥ä¸‹è®¢å•ï¼š"+order+",<---->,"+count);	
 		
 		
 		OrderDetail detail=new OrderDetail();
 		int hid=Integer.parseInt(request.getParameter("odhid"));
 		
-		//ĞŞ¸Ä·¿Îİ×´Ì¬Îª4£¬±íÊ¾ÒÑ¶©¡£
+		//ä¿®æ”¹æˆ¿å±‹çŠ¶æ€ä¸º4ï¼Œè¡¨ç¤ºå·²è®¢ã€‚
 		HouseDao houseDao=new HouseDaoImpl();
 		House house = houseDao.findById(hid);
 		house.setHstatus(4);
@@ -558,12 +555,12 @@ public class OrderUser extends HttpServlet {
 		double priceDay=Double.parseDouble(request.getParameter("price"));
 		int day=Integer.parseInt(request.getParameter("odday"));
 		if(count>0){
-			order=orderDao.findCondition(ouid, date);//²éÑ¯ĞÂÔö¼ÓµÄOrderID
+			order=orderDao.findCondition(ouid, date);//æŸ¥è¯¢æ–°å¢åŠ çš„OrderID
 			detail.setOdoid(order.getOid());detail.setOdcost(payCost);
 			detail.setOdday(day);detail.setOdhid(hid);
 			detail.setOdprice(priceDay);
 			
-			/*ĞŞ¸ÄÊ×Ò³ÏÔÊ¾·¿ÎİÊıÁ¿¼õÒ»*/
+			/*ä¿®æ”¹é¦–é¡µæ˜¾ç¤ºæˆ¿å±‹æ•°é‡å‡ä¸€*/
 			HouseR houser=new HouseR();
 			houser.indexComtomer(request);			
 			
