@@ -5,36 +5,7 @@ import java.util.Date;
 
 /**
  * 
- * @author Administrator 2017年8月14日 上午11:56:17
-*	字段名称			说　　明			类型
- *rh_id				编号	自增长  主键    	int
- *rh_user_id		房东id			int 
- *rh_name			名字				varchar            
- *rh_ invoice		发票				int     	0:不提供发票   1;提供发票
- *rh_ lease_type	出租类型			int   	 	1： 整租   2： 单间   3：床位
- *rh_house_type		房屋类型			int  		1：酒店2：普通住宅 3：公寓:4：大洋房  5：小洋房  6：别墅
- *rh_area			面积				float               单位m2
- *rh_live			可住人数			int
- *rh_bed			床位数			int
- *rh_bedroom		卧室数			int
- *rh_bed_form		床形				int         1：单人床  2:双人床
- *rh_toilet			卫生间数			int
- *rh_check_in		入住时间			datetime    只显示小时和分     
- *rh_check_out		退房时间			datetime    只显示小时和分
- *rh_minday			最小天数			int
- *rh_maxday			最大天数			int
- *rh_refund_day		全额退款日			int
- *rh_rent_price		日租价			int          单位   元/天      
- *rh_describe		房屋描述			varchar
- *rh_use_rule		使用规则			varchar
- *rh_ service		设施服务			varchar
- *rh_address		地址				varchar
- *rh_pay_rule		付款规则			int         1：严格   2：宽松
- *rh_picture1		房屋图片1			varchar         	存放图片路径
- *rh_picture2		房屋图片2			varchar
- *rh_picture3		房屋图片3			varchar
- *rh_status			房屋状态			int         		0：未发布  1：已发布  2：已预订  -1 已删除
-
+ * @author Administrator
  */
 public class House implements Serializable{
 	private Integer hid;
