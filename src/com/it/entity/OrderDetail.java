@@ -1,14 +1,7 @@
 package com.it.entity;
 /**
  * 
- * @author Administrator 2017年8月14日 下午12:25:41
- *字段名称				说　　明
- *rod_id			编号	自增长  int，主键
- *ro_id				订单ID	int
- *rh_id				房屋ID	int
- *rod_days			租住天数	int
- *rod_price			日租价	float
- *rod_cost			金额	float            
+ * @author Administrator         
  */
 
 public class OrderDetail {
