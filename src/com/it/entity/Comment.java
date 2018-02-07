@@ -4,18 +4,7 @@ import java.util.Date;
 
 /**
  * 
- * @author Administrator 2017年8月14日 下午12:15:35
- *字段名称				说　　明
- *rc_id				编号	自增长  		int  主键
- *rc_reply			回复				varchar
- *rc_content		内容				varchar
- *rc_create_time	创建时间			datetime
- *rc_reply_time		回复时间			datetime
- *rc_cid			发送方id			int     
- *rc_rid			接收方id			int
- *rc_cname			发送方名称			varchar
- *rc_rname			接收方名称			varchar
- *rc_status			消息状态		 	int         0：未查看（消息一发送，默认状态）   1：已查看  2 :回复未查看 3 回复已查看
+ * @author Administrator 
  */
 public class Comment {
 
