@@ -13,7 +13,7 @@ import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 
 /**
- *	2017年8月12日 上午9:17:00
+ *	
  * 
  */
 public class DbUtilPool {
@@ -39,7 +39,7 @@ private static DataSource datasource=null;
 	public static DataSource getDataSource(){
 		System.out.println(datasource);		
 		if(datasource==null){
-			throw new RuntimeException("数据源不存在...");
+			throw new RuntimeException("鏁版嵁婧愪笉瀛樺湪...");
 		}
 		
 		return datasource;	
