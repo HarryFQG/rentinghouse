@@ -8,7 +8,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
  * 
- * @author Administrator 2017Äê8ÔÂ15ÈÕ ÏÂÎç12:53:06
+ * @author Administrator 
  *
  */
 public class pageTag extends SimpleTagSupport{
@@ -74,14 +74,14 @@ public class pageTag extends SimpleTagSupport{
 		}*/
 		pageList.append("<div align='left'>");
 		/*if(totalPage>1){*/
-			pageList.append("¹²ÓĞ"+totalRow+"Ìõ¼ÇÂ¼");
-			pageList.append("<a href=\""+redirectUrl+"&"+param+"=1\">Ê×Ò³</a>");
-			pageList.append("<a href=\""+redirectUrl+"&"+param+"="+(currentPage-1)+"\">ÉÏÒ»Ò³</a>");
-			pageList.append("<a href=\""+redirectUrl+"&"+param+"="+(currentPage+1)+"\">ÏÂÒ»Ò³</a>");
-			pageList.append("<a href=\""+redirectUrl+"&"+param+"="+(totalPage)+"\">Î²Ò³</a>");
+			pageList.append("å…±æœ‰"+totalRow+"æ¡è®°å½•");
+			pageList.append("<a href=\""+redirectUrl+"&"+param+"=1\">é¦–é¡µ</a>");
+			pageList.append("<a href=\""+redirectUrl+"&"+param+"="+(currentPage-1)+"\">ä¸Šä¸€é¡µ</a>");
+			pageList.append("<a href=\""+redirectUrl+"&"+param+"="+(currentPage+1)+"\">ä¸‹ä¸€é¡µ</a>");
+			pageList.append("<a href=\""+redirectUrl+"&"+param+"="+(totalPage)+"\">å°¾é¡µ</a>");
 			pageList.append("<input type=\"text\" id=\"zhiding\" value=\"\" style=\"width:30px\"/><a onclick=\"javascript:func1()\" >Go</a>");
-			pageList.append(" µ±Ç°Ò³<input type=\"text\" value=\""+currentPage+"\" style=\"width: 30px\" readonly=\"readonly\"/>");
-			pageList.append("×ÜÒ³Êı<input type=\"text\" value=\""+totalPage+"\" style=\"width: 30px\" readonly=\"readonly\"/>");
+			pageList.append(" å½“å‰é¡µ<input type=\"text\" value=\""+currentPage+"\" style=\"width: 30px\" readonly=\"readonly\"/>");
+			pageList.append("æ€»é¡µæ•°<input type=\"text\" value=\""+totalPage+"\" style=\"width: 30px\" readonly=\"readonly\"/>");
 		/*}*/
 		pageList.append("</div>");
 		out.write(pageList.toString());
