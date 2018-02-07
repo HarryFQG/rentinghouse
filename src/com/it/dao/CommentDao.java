@@ -3,15 +3,11 @@ package com.it.dao;
 import java.util.List;
 
 import com.it.entity.Comment;
-/**
- * 
- * @author Administrator 2017Äê8ÔÂ14ÈÕ ÏÂÎç2:01:56
- *
- */
+
 public interface CommentDao extends IDao<Comment>{
 	/**
-	 * ÏÂÎç2:04:48
-	 * Õ¾ÄÚĞÅÏ¢ÔÄ¶ÁÓë·ñµÄ×´Ì¬µÄ¸Ä±ä
+	 * ä¸‹åˆ2:04:48
+	 * ç«™å†…ä¿¡æ¯é˜…è¯»ä¸å¦çš„çŠ¶æ€çš„æ”¹å˜
 	 * @param status
 	 * @return
 	 *
@@ -19,17 +15,17 @@ public interface CommentDao extends IDao<Comment>{
 	public int changStatus(int status);
 
 	/**
-	 * 2017Äê8ÔÂ18ÈÕÏÂÎç6:54:31 
+	 * 2017å¹´8æœˆ18æ—¥ä¸‹åˆ6:54:31 
 	 * @param fangDongId
 	 * @param userId
-	 *	²éÑ¯»á»°
+	 *	æŸ¥è¯¢ä¼šè¯
 	 * @return 
 	 */
 	public List<Comment> findById2(Integer fangDongId, Integer userId);
 	
 	
-	/**²éÑ¯»Ø»°ÁĞ±í
-	 * 2017Äê8ÔÂ20ÈÕÏÂÎç12:06:29 
+	/**æŸ¥è¯¢å›è¯åˆ—è¡¨
+	 * 2017å¹´8æœˆ20æ—¥ä¸‹åˆ12:06:29 
 	 * @param uid
 	 * @return
 	 *
